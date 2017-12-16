@@ -14,3 +14,5 @@ const start = async () => {
     })
   }
 }
+
+start()
