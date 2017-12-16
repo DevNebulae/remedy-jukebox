@@ -10,7 +10,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         use: "babel-loader",
         exclude: /node_modules/
       }
@@ -21,7 +21,7 @@ module.exports = {
     filename: "server.js"
   },
   plugins: [
-    new CleanWebpackPlugin([dist]),
+    new CleanWebpackPlugin([dist], { root: process.cwd() }),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
