@@ -1,9 +1,14 @@
+import compression from "compression"
 import express from "express"
 import fs from "fs"
 import path from "path"
 
 const createApp = async () => {
   const app = express()
+
+  if (process.env.NODE_ENV !== "development") {
+    app.use(compression())
+  }
 
   app.get("/cdn", (request, response) => {
     const { id, type } = request.query
